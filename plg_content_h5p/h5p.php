@@ -2,7 +2,7 @@
 
 /**
  * @package    Pkg_content_h5p
- * @author     Vitalii Butsykin <v.butsykin@italik.dev>
+ * @author     Vitalii Butsykin <v.butsykin@gmail.com>
  * @copyright  2022 Vitalii Butsykin
  * @license    GNU General Public License ver. 2 or later
  */

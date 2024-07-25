@@ -1,7 +1,7 @@
 <?php
 /**
  * @package    pkg_h5p_mathjax
- * @author     Vitalii Butsykin <v.butsykin@italik.dev>
+ * @author     Vitalii Butsykin <v.butsykin@gmail.com>
  * @copyright  2022 Vitalii Butsykin
  * @license    GNU General Public License ver. 2 or later
  */

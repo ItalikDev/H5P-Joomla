@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<extension version="1.0" type="plugin" method="upgrade" group="h5p">
+
+	<name>Mathjax for H5P Joomla plugin</name>
+	<author>Vitaliy Butsykin</author>
+	<authorEmail>v.butsykin@gmail.com</authorEmail>
+	<authorUrl>https://github.com/ItalikDev</authorUrl>
+	<creationDate>September 2022</creationDate>
+	<license>GNU/GPL http://www.gnu.org/copyleft/gpl.html</license>
+	<version>1.0.0</version>
+	<description>Plugin embed defined Mathjax to H5P Joomla contents</description>
+	<files>
+		<filename plugin="mathjax">mathjax.php</filename>
+	</files>
+</extension>
