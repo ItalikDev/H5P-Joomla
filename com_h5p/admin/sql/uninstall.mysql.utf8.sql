@@ -1,0 +1,16 @@
+DROP TABLE IF EXISTS `#__h5p_contents`;
+DROP TABLE IF EXISTS `#__h5p_contents_libraries`;
+DROP TABLE IF EXISTS `#__h5p_contents_tags`;
+DROP TABLE IF EXISTS `#__h5p_contents_user_data`;
+DROP TABLE IF EXISTS `#__h5p_counters`;
+DROP TABLE IF EXISTS `#__h5p_events`;
+DROP TABLE IF EXISTS `#__h5p_libraries`;
+DROP TABLE IF EXISTS `#__h5p_libraries_cachedassets`;
+DROP TABLE IF EXISTS `#__h5p_libraries_hub_cache`;
+DROP TABLE IF EXISTS `#__h5p_libraries_languages`;
+DROP TABLE IF EXISTS `#__h5p_libraries_libraries`;
+DROP TABLE IF EXISTS `#__h5p_results`;
+DROP TABLE IF EXISTS `#__h5p_settings`;
+DROP TABLE IF EXISTS `#__h5p_tags`;
+DROP TABLE IF EXISTS `#__h5p_tmpfiles`;
+DROP TABLE IF EXISTS `#__h5p_content_hub_metadata_cache`;

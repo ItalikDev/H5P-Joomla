@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.0" method="upgrade">
+
+    <name>H5P</name>
+    <creationDate>September 2022</creationDate>
+    <author>Vitalii Butsykin</author>
+	<authorEmail>v.butsykin@gmail.com</authorEmail>
+    <authorUrl>https://github.com/ItalikDev</authorUrl>
+    <copyright>Vitalii Butsykin</copyright>
+    <license>GPL v3</license>
+    <version>1.0.0</version>
+    <description>
+        H5P for Joomla!!!
+    </description>
+	
+	<install> 
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+	<uninstall> 
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
+	<update> 
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql</schemapath>
+		</schemas>
+	</update>
+
+	<namespace path="src/">VB\Component\H5P</namespace>
+	
+    <files folder="site">
+        <filename>index.html</filename>
+        <filename>h5p.php</filename>
+        <filename>controller.php</filename>
+    </files>
+	
+	<media folder="media" destination="com_h5p">
+		<folder>css</folder>
+		<folder>js</folder>
+		<filename>index.html</filename>
+	</media>
+
+	<administration>
+		<menu link="administrator/index.php?option=com_h5p">COM_H5P</menu>
+		<submenu>
+			<menu view="contents">COM_H5P_MENU_CONTENTS</menu> 
+			<menu view="newcontent">COM_H5P_MENU_NEWCONTENT</menu> 
+			<menu view="libraries">COM_H5P_MENU_LIBRARIES</menu> 
+			<menu view="myresults">COM_H5P_MENU_MYRESULTS</menu> 
+			<menu view="settings">COM_H5P_MENU_SETTINGS</menu> 
+		</submenu>
+
+		<files folder="admin">
+			<filename>index.html</filename>
+			<filename>controller.php</filename>
+			<filename>config.xml</filename>
+			<filename>access.xml</filename>
+			<filename>h5p.php</filename>
+			<folder>sql</folder>
+			<folder>views</folder>
+			<folder>models</folder>
+			<folder>helpers</folder>
+		</files>
+		
+		<languages folder="admin/language">
+			<language tag="en-GB">en-GB/en-GB.com_h5p.ini</language>
+			<language tag="en-GB">en-GB/en-GB.com_h5p.sys.ini</language>
+		</languages>
+		
+	</administration>
+	
+</extension>

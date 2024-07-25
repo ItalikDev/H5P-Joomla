@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<access component="com_h5p">
+	<section name="component">
+		<action name="h5p.disable_h5p_security" title="disable_h5p_security" description ="disable_h5p_security" />
+		<action name="h5p.edit_h5p_contents" title="edit_h5p_contents" description ="edit_h5p_contents" />
+		<action name="h5p.edit_others_h5p_contents" title="edit_others_h5p_contents" description ="edit_others_h5p_contents" />
+		<action name="h5p.view_h5p_contents" title="view_h5p_contents" description ="view_h5p_contents" />
+		<action name="h5p.view_others_h5p_contents" title="view_others_h5p_contents" description ="view_others_h5p_contents" />
+		<action name="h5p.manage_options" title="manage_options" description ="manage_options" />
+		<action name="h5p.manage_h5p_libraries" title="manage_h5p_libraries" description ="manage_h5p_libraries" />
+		<action name="h5p.install_recommended_h5p_libraries" title="Install recommended H5P Libraries" description ="Install only recommended content types available at the Hub." />
+	</section>
+</access>

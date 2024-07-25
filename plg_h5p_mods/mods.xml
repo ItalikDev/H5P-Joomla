@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<extension version="1.0" type="plugin" method="upgrade" group="h5p">
+
+	<name>Mods for H5P Joomla plugin</name>
+	<author>Vitalii Butsykin</author>
+	<authorEmail>V.Butsykin@italik.dev</authorEmail>
+	<authorUrl>italik.dev</authorUrl>
+	<creationDate>November 2022</creationDate>
+	<license>GNU/GPL http://www.gnu.org/copyleft/gpl.html</license>
+	<version>1.0.0</version>
+	<description>Plugin mods for H5P Joomla</description>
+	<files>
+		<filename plugin="mods">mods.php</filename>
+		<filename plugin="mods">styles/general.css</filename>
+	</files>
+</extension>

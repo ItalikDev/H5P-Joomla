@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>	
+<!DOCTYPE extension>	
+<extension type="library" version="4.0" method="upgrade">	
+    <name>H5P libraries</name>	
+    <libraryname>h5p</libraryname>	
+    <version>1.25.2</version>	
+    <creationDate>2022-10-03</creationDate>	
+    <license>GNU/GPLv3 or later</license>	
+    <description>H5P Framework.</description>	
+    <namespace path="src">VB\Libraries</namespace>	
+    <files>	
+        <folder>h5p-editor-php-library</folder>	
+        <folder>h5p-php-library</folder>	
+        <filename>H5PEditorJoomlaAjax.php</filename>	
+		<filename>H5PEditorJoomlaStorage.php</filename>	
+		<filename>H5PEventHelper.php</filename>	
+		<filename>H5PFrameworkHelper.php</filename>	
+        <filename>index.html</filename>	
+    </files>	
+</extension>
