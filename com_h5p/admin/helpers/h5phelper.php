@@ -67,11 +67,6 @@ class H5PJoomlaHelper
 
         $app = Factory::getApplication();
 
-        ////if (!has_action('h5p_alter_library_scripts') && !has_action('h5p_alter_library_styles')) {
-        ////  return;
-        ////}
-
-        //Refactor dependency list
         $libraries = array();
         foreach ($dependencies as $dependency) {
             $libraries[$dependency['machineName']] = array(
@@ -81,30 +76,8 @@ class H5PJoomlaHelper
             );
         }
 
-        /**
-         * Allows you to alter which JavaScripts are loaded for H5P. This is
-         * useful for adding your own custom scripts or replacing existing once.
-         *
-         * @since 1.5.3
-         *
-         * @param array &$scripts List of JavaScripts to be included.
-         * @param array $libraries The list of libraries that has the scripts.
-         * @param string $embed_type Possible values are: div, iframe, external, editor.
-         */
-        ////do_action_ref_array('h5p_alter_library_scripts', array(&$files['scripts'], $libraries, $embed));
-
         $app->triggerEvent('onh5p_alter_library_scripts', array(&$files['scripts'], $libraries, $embed));
-        /**
-         * Allows you to alter which stylesheets are loaded for H5P. This is
-         * useful for adding your own custom stylesheets or replacing existing once.
-         *
-         * @since 1.5.3
-         *
-         * @param array &$styles List of stylesheets to be included.
-         * @param array $libraries The list of libraries that has the styles.
-         * @param string $embed_type Possible values are: div, iframe, external, editor.
-         */
-        ////do_action_ref_array('h5p_alter_library_styles', array(&$files['styles'], $libraries, $embed));
+
         $app->triggerEvent('onh5p_alter_library_styles', array(&$files['styles'], $libraries, $embed));
     }
 
@@ -244,11 +217,6 @@ class H5PJoomlaHelper
             // Relative URLs are used to support both http and https in iframes.
             $url['rel'] = '/' . preg_replace('/^[^:]+:\/\/[^\/]+\//', '', $url['abs']);
 
-            // Check for HTTPS
-            //if (is_ssl() && substr($url['abs'], 0, 5) !== 'https') {
-            // Update protocol
-            //  $url['abs'] = 'https' . substr($url['abs'], 4);
-            // }
         }
 
         return $absolute ? $url['abs'] : $url['rel'];
@@ -959,18 +927,6 @@ class H5PJoomlaHelper
         if ($data->time === null) {
             $data->time = 0;
         }
-
-        /**
-         * Allows you to alter a user's submitted result for a given H5P content
-         * This action is fired before the result is saved.
-         *
-         * @since 1.8.0
-         *
-         * @param object &$data Has the following properties score,max_score,opened,finished,time
-         * @param int $result_id Only set if updating result
-         * @param int $content_id Identifier of the H5P Content
-         * @param int $user_id Identfieri of the User
-         */
 
         $app = Factory::getApplication();
         $app->triggerEvent('onh5p_alter_user_result', array(&$data, $result_id, $content_id, $user_id));
