@@ -2,6 +2,13 @@
 <!DOCTYPE extension>	
 <extension type="library" version="4.0" method="upgrade">	
     <name>H5P libraries</name>	
+    <creationDate>September 2022</creationDate>
+    <author>Vitalii Butsykin</author>
+	<authorEmail>v.butsykin@gmail.com</authorEmail>
+    <authorUrl>https://github.com/ItalikDev</authorUrl>
+    <copyright>Vitalii Butsykin</copyright>
+    <license>GPL v3</license>
+    <version>1.0.0</version>
     <libraryname>h5p</libraryname>	
     <version>1.25.2</version>	
     <creationDate>2022-10-03</creationDate>	

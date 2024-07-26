@@ -286,7 +286,7 @@ INSERT INTO `#__h5p_settings` (`id`, `setting_name`, `setting_value`) VALUES
 (8, 'h5p_save_content_frequency', '30'),
 (9, 'h5p_site_key', ''),
 (10, 'h5p_show_toggle_view_others_h5p_contents', '0'),
-(11, 'h5p_content_type_cache_updated_at', ''),
+(11, 'h5p_content_type_cache_updated_at', '0'),
 (12, 'h5p_check_h5p_requirements', '0'),
 (13, 'h5p_hub_is_enabled', '0'),
 (14, 'h5p_send_usage_statistics', '0'),
