@@ -26,74 +26,6 @@ class H5PFrameworkHelper implements \H5PFrameworkInterface
 {
 	protected $libraryCache;
 
-	/*private function _libraryByName($machineName, $majorVersion, $minorVersion)
-	{
-		// Make sure we got a libraryCache array.
-		if (!is_array($this->libraryCache))
-		{
-			$this->libraryCache = array();
-		}
-
-		// Create key for libraryCache array
-		$fullname = "{$machineName}-{$majorVersion}.{$minorVersion}";
-
-		if (!isset($this->libraryCache[$fullname]))
-		{
-			// Get from database.
-			$db = Factory::getDbo();
-			$query = $db->getQuery(true);
-			$query->select('*')
-				->from('#__h5p_libraries')
-				->where(array('name = ' . $db->quote($machineName),
-											'major_version = ' . $majorVersion,
-											'minor_version = ' . $minorVersion));
-			$db->setQuery((string) $query);
-			$lib = $db->loadObject();
-
-			if (empty($lib))
-			{
-				return FALSE;
-			}
-			// Store in cache. Twice.
-			$this->libraryCache[$fullname] = $lib;
-			$this->libraryCache[$lib->library_id] = $lib;
-		}
-
-		return $this->libraryCache[$fullname];
-	}*/
-
-	/*private function _libraryById($libraryId)
-	{
-		// Make sure we got a libraryCache array.
-		if (!is_array($this->libraryCache))
-		{
-			$this->libraryCache = array();
-		}
-
-		if (!isset($this->libraryCache[$libraryId]))
-		{
-			// Get from database.
-			$db = Factory::getDbo();
-			$query = $db->getQuery(true);
-			$query->select('*')
-				->from('#__h5p_libraries')
-				->where('library_id = ' . $libraryId);
-			$db->setQuery((string) $query);
-			$lib = $db->loadObject();
-
-			// Store in cache. Twice.
-			if (empty($lib))
-			{
-				return FALSE;
-			}
-			$fullname = "{$lib->machineName}-{$lib->majorVersion}.{$lib->minorVersion}";
-			$this->libraryCache[$fullname] = $lib;
-			$this->libraryCache[$lib->library_id] = $lib;
-		}
-
-		return $this->libraryCache[$libraryId];
-	}*/
-
 	public function setErrorMessage($message, $code = NULL)
 	{
 		if (H5PJoomlaHelper::current_user_can('edit_h5p_contents')) {
@@ -108,27 +40,6 @@ class H5PFrameworkHelper implements \H5PFrameworkInterface
 		}
 	}
 
-	/*public function t($message, $replacements = array())
-	{
-		// return t($message, $replacements);
-		$transd = Text::_($message);
-		if (empty($replacements))
-		{
-			return $transd;
-		}
-		else
-		{
-			return strtr($transd, $replacements);
-		}
-	}*/
-
-	/**
-	 * Get the Path to the folder containing the unpacked copy of the
-	 * last uploaded H5P
-	 *
-	 * @return string
-	 *   Path to the folder where the last uploaded h5p for this session is located.
-	 */
 	public function getUploadedH5pFolderPath()
 	{
 		// This is set by the controller receiving the .
@@ -143,27 +54,12 @@ class H5PFrameworkHelper implements \H5PFrameworkInterface
 		return $dir;
 	}
 
-	/**
-	 * @return string Path to the folder where all h5p files are stored
-	 */
 	public function getH5pPath()
 	{
-		/*		$filepath = JPATH_ROOT . DIRECTORY_SEPARATOR . 'media' . DIRECTORY_SEPARATOR . 'com_h5p';
-		if (!is_dir($filepath))
-		{
-			@mkdir($filepath . DIRECTORY_SEPARATOR . 'libraries', 0777, true);
-			@mkdir($filepath . DIRECTORY_SEPARATOR . 'content', 0777, true);
-		}
-		return $filepath;*/
 		$plugin = H5PJoomlaHelper::get_instance();
 		return $plugin->get_h5p_path();
 	}
 
-	/**
-	 * Get the path to the last uploaded h5p file
-	 *
-	 * @return string Path to the last uploaded h5p
-	 */
 	public function getUploadedH5pPath()
 	{
 		static $path;
@@ -177,15 +73,6 @@ class H5PFrameworkHelper implements \H5PFrameworkInterface
 		return $path;
 	}
 
-	/**
-	 * Get file extension whitelist
-	 *
-	 * The default extension list is part of h5p, but admins should be allowed to modify it
-	 *
-	 * @param boolean $isLibrary
-	 * @param string $defaultContentWhitelist
-	 * @param string $defaultLibraryWhitelist
-	 */
 	public function getWhitelist($isLibrary, $defaultContentWhitelist, $defaultLibraryWhitelist)
 	{
 		// TODO: Make whitelist configurable in admin section!
@@ -196,30 +83,11 @@ class H5PFrameworkHelper implements \H5PFrameworkInterface
 		return $whitelist;
 	}
 
-	/**
-	 * Is the current user allowed to update libraries?
-	 *
-	 * @return boolean
-	 *  TRUE if the user is allowed to update libraries
-	 *  FALSE if the user is not allowed to update libraries
-	 */
 	public function mayUpdateLibraries()
 	{
 		return H5PJoomlaHelper::current_user_can('manage_h5p_libraries');
 	}
 
-	/**
-	 * Get id to an excisting library
-	 *
-	 * @param string $machineName
-	 *  The librarys machine name
-	 * @param int $majorVersion
-	 *  The librarys major version
-	 * @param int $minorVersion
-	 *  The librarys minor version
-	 * @return int
-	 *  The id of the specified library or FALSE
-	 */
 	public function getLibraryId($name, $majorVersion = NULL, $minorVersion = NULL)
 	{
 		$db = Factory::getDbo();
@@ -257,15 +125,6 @@ class H5PFrameworkHelper implements \H5PFrameworkInterface
 		return $id === NULL ? FALSE : $id;
 	}
 
-	/**
-	 * Is the library a patched version of an existing library?
-	 *
-	 * @param object $library
-	 *  The library data for a library we are checking
-	 * @return boolean
-	 *  TRUE if the library is a patched version of an existing library
-	 *  FALSE otherwise
-	 */
 	public function isPatchedLibrary($library)
 	{
 		$db = Factory::getDbo();
@@ -293,16 +152,6 @@ class H5PFrameworkHelper implements \H5PFrameworkInterface
 		return $db->loadResult() !== NULL;
 	}
 
-	/**
-	 * Convert list of file paths to csv
-	 *
-	 * @param array $libraryData
-	 *  Library data as found in library.json files
-	 * @param string $key
-	 *  Key that should be found in $libraryData
-	 * @return string
-	 *  file paths separated by ', '
-	 */
 	private function pathsToCsv($libraryData, $key)
 	{
 		if (isset($libraryData[$key])) {
@@ -315,14 +164,6 @@ class H5PFrameworkHelper implements \H5PFrameworkInterface
 		return '';
 	}
 
-	/**
-	 * Store data about a library
-	 *
-	 * Also fills in the libraryId in the libraryData object if the object is new
-	 *
-	 * @param object $libraryData
-	 *  Object holding the information that is to be stored
-	 */
 	public function saveLibraryData(&$libraryData, $new = TRUE)
 	{
 		$preloadedJs = $this->pathsToCsv($libraryData, 'preloadedJs');
@@ -410,16 +251,6 @@ class H5PFrameworkHelper implements \H5PFrameworkInterface
 		}
 	}
 
-	/**
-	 * Save what libraries a library is dependending on
-	 *
-	 * @param int $libraryId
-	 *  Library Id for the library we're saving dependencies for
-	 * @param array $dependencies
-	 *  List of dependencies in the format used in library.json
-	 * @param string $dependency_type
-	 *  What type of dependency this is, for instance it might be an editor dependency
-	 */
 	public function saveLibraryDependencies($id, $dependencies, $dependency_type)
 	{
 		$db = Factory::getDbo();
@@ -445,44 +276,6 @@ class H5PFrameworkHelper implements \H5PFrameworkInterface
 		}
 	}
 
-	/**
-	 * Stores contentData
-	 *
-	 * @param int $contentId
-	 *  Framework specific id identifying the content
-	 * @param string $contentJson
-	 *  The content data that is to be stored
-	 * @param array $mainJsonData
-	 *  The data extracted from the h5p.json file
-	 * @param int $contentMainId
-	 *  Any contentMainId defined by the framework, for instance to support revisioning
-	 */
-	/*public function saveContentData($contentId, $contentJson, $mainJsonData, $mainLibraryId, $contentMainId = NULL)
-	{
-		$embedTypes = '';
-		if (isset($mainJsonData['embedTypes']))
-		{
-			$embedTypes = implode(', ', $mainJsonData['embedTypes']);
-		}
-		$db = JFactory::getDbo();
-		$title = isset($mainJsonData['title']) ? $mainJsonData['title'] : 'Untitled H5P upload';
-		$_REQUEST['new-h5p-title'] = $title;
-		$db->setQuery(sprintf(
-				"INSERT INTO #__h5p
-				  (h5p_id, title, json_content, embed_type, main_library_id)
-				VALUES (%s, %s, %s, %s, %d)",
-				$db->quote($contentId), $db->quote($title), $db->quote($contentJson), $db->quote($embedTypes), $mainLibraryId
-			));
-		$res = $db->query();
-		// @todo: Add support for allowing the user to select embed type
-	}*/
-
-	/**
-	 * Deletes content data
-	 *
-	 * @param int $contentId
-	 *  Framework specific id identifying the content
-	 */
 	public function deleteContentData($contentId)
 	{
 		$db = Factory::getDbo();
@@ -499,18 +292,6 @@ class H5PFrameworkHelper implements \H5PFrameworkInterface
 		$db->execute();
 	}
 
-	/**
-	 * Copies library usage
-	 *
-	 * @param int $contentId
-	 *  Framework specific id identifying the content
-	 * @param int $copyFromId
-	 *  Framework specific id identifying the content to be copied
-	 * @param int $contentMainId
-	 *  Framework specific main id for the content, typically used in frameworks
-	 *  That supports versioning. (In this case the content id will typically be
-	 *  the version id, and the contentMainId will be the frameworks content id
-	 */
 	public function copyLibraryUsage($contentId, $copyFromId, $contentMainId = NULL)
 	{
 		$db = Factory::getDbo();
@@ -525,12 +306,6 @@ class H5PFrameworkHelper implements \H5PFrameworkInterface
 		$db->execute();
 	}
 
-	/**
-	 * Delete what libraries a content item is using
-	 *
-	 * @param int $contentId
-	 *  Content Id of the content we'll be deleting library usage for
-	 */
 	public function deleteLibraryUsage($contentId)
 	{
 		$db = Factory::getDbo();
@@ -538,16 +313,6 @@ class H5PFrameworkHelper implements \H5PFrameworkInterface
 		$db->execute();
 	}
 
-	/**
-	 * Saves what libraries the content uses
-	 *
-	 * @param int $contentId
-	 *  Framework specific id identifying the content
-	 * @param array $librariesInUse
-	 *  List of libraries the content uses. Libraries consist of arrays with:
-	 *   - libraryId stored in $librariesInUse[<place>]['library']['libraryId']
-	 *   - libraryId stored in $librariesInUse[<place>]['preloaded']
-	 */
 	public function saveLibraryUsage($contentId, $librariesInUse)
 	{
 		$db = Factory::getDbo();
@@ -574,16 +339,7 @@ class H5PFrameworkHelper implements \H5PFrameworkInterface
 			$res = $db->execute();
 		}
 	}
-	/**
-	 * Loads a library
-	 *
-	 * @param string $machineName
-	 * @param int $majorVersion
-	 * @param int $minorVersion
-	 * @return array|FALSE
-	 *  Array representing the library with dependency descriptions
-	 *  FALSE if the library doesn't exist
-	 */
+
 	public function loadLibrary($name, $majorVersion, $minorVersion)
 	{
 		$db = Factory::getDbo();
@@ -662,30 +418,6 @@ class H5PFrameworkHelper implements \H5PFrameworkInterface
 		return FALSE;
 	}
 
-	/**
-	 * Loads and decodes library semantics.
-	 *
-	 * @param string $machineName
-	 * @param int $majorVersion
-	 * @param int $minorVersion
-	 * @return array|FALSE
-	 *  Array representing the library with dependency descriptions
-	 *  FALSE if the library doesn't exist
-	 */
-	/*public function getLibrarySemantics($machineName, $majorVersion, $minorVersion)
-	{
-		$lib = $this->_libraryByName($machineName, $majorVersion, $minorVersion);
-		$semantics = json_decode($lib->semantics);
-		return $semantics;
-	}*/
-
-	/**
-	 * Delete all dependencies belonging to given library
-	 *
-	 * @param int $libraryId
-	 *  Library Id
-	 */
-
 	public function deleteLibraryDependencies($libraryId)
 	{
 		$db = Factory::getDbo();
@@ -719,7 +451,7 @@ class H5PFrameworkHelper implements \H5PFrameworkInterface
 	{
 
 		// Make sure the target does not exist.
-		if($stream){
+		if ($stream) {
 			File::delete($stream);
 		}
 		$options = array(
@@ -794,28 +526,6 @@ class H5PFrameworkHelper implements \H5PFrameworkInterface
 			);
 		}
 
-
-		/*	
-		if (!empty($data)) {
-		  // Post
-		  $response = HttpFactory::getHttp()->post(	$url, 
-													$data, 
-													array_merge( array('Content-Type' => 'application/x-www-form-urlencoded'), 
-																		$headers
-																)
-												   );
-		}
-		else {
-			
-			$response = HttpFactory::getHttp()->get($url, 
-													array_merge( array('Content-Type' => 'application/x-www-form-urlencoded'), 
-																		$headers
-																)																		
-													);
-		}	
-		
-		*/
-
 		if ($stream && empty($response->error)) {
 			// Create file from data
 			H5PeditorJoomlaStorage::saveFileTemporarily($response->body);
@@ -868,9 +578,6 @@ class H5PFrameworkHelper implements \H5PFrameworkInterface
 	public function loadAddons()
 	{
 		$db = Factory::getDbo();
-		// Load addons
-		// If there are several versions of the same addon, pick the newest one
-
 
 		return $db->setQuery(
 			"SELECT l1.id as libraryId, l1.name as machineName,
@@ -886,10 +593,6 @@ class H5PFrameworkHelper implements \H5PFrameworkInterface
 				))
         	WHERE l1.add_to IS NOT NULL AND l2.name IS NULL"
 		)->loadAssocList();
-
-		// NOTE: These are treated as library objects but are missing the following properties:
-		// title, embed_types, drop_library_css, fullscreen, runnable, semantics, has_icon
-
 	}
 
 	public function getMessages($type)
@@ -1020,9 +723,6 @@ class H5PFrameworkHelper implements \H5PFrameworkInterface
 		return $datetime->format($type);
 	}
 
-	/**
-	 * Implements getOption().
-	 */
 	public function getOption($name, $default = FALSE)
 	{
 		if ($name === 'site_uuid') {
@@ -1031,10 +731,6 @@ class H5PFrameworkHelper implements \H5PFrameworkInterface
 		return H5PJoomlaHelper::getSetting('h5p_' . $name, $default);
 	}
 
-
-	/**
-	 * Implements setOption().
-	 */
 	public function setOption($name, $value)
 	{
 		if ($name === 'site_uuid') {
@@ -1073,8 +769,6 @@ class H5PFrameworkHelper implements \H5PFrameworkInterface
 	{
 		$db = Factory::getDbo();
 
-		// Reset user datas for this content
-		//$db->setQuery("UPDATE #__h5p_contents_user_data, SET updated_at = '". $this->current_time(), "', data = 'RESET' WHERE content_id = " . $contentId . "AND invalidate = 1");
 		$query = $db->getQuery(true);
 		$query->update($db->quoteName('#__h5p_contents_user_data'))
 			->set(array(
@@ -1575,9 +1269,6 @@ class H5PFrameworkHelper implements \H5PFrameworkInterface
 		return true;
 	}
 
-	/**
-	 * Implements t
-	 */
 	public function t($message, $replacements = array())
 	{
 		// Insert !var as is, escape @var and emphasis %var.

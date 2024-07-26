@@ -15,13 +15,6 @@ use Joomla\CMS\Filesystem\File;
 
 class H5PEditorJoomlaStorage implements \H5peditorStorage
 {
-	/*	public function getSemantics($machine_name, $major_version, $minor_version)
-	{
-		$interface = H5PJoomla::getInstance('interface');
-		$semantics = $interface->getLibrarySemantics($machine_name, $major_version, $minor_version);
-		return json_encode($semantics);
-	}*/
-
 	public function getLanguage($machineName, $majorVersion, $minorVersion, $language)
 	{
 		// FIXME: Get current user language.

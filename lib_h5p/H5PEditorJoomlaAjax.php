@@ -14,11 +14,6 @@ use Joomla\CMS\Factory;
 class H5PEditorJoomlaAjax implements \H5PEditorAjaxInterface
 {
 
-  /**
-   * Gets latest library versions that exists locally
-   *
-   * @return array Latest version of all local libraries
-   */
   public function getLatestLibraryVersions()
   {
     $db = Factory::getDbo();
@@ -58,14 +53,6 @@ class H5PEditorJoomlaAjax implements \H5PEditorAjaxInterface
     return $db->loadObjectList();
   }
 
-  /**
-   * Get locally stored Content Type Cache. If machine name is provided
-   * it will only get the given content type from the cache
-   *
-   * @param $machineName
-   *
-   * @return array|object|null Returns results from querying the database
-   */
   public function getContentTypeCache($machineName = NULL)
   {
     $db = Factory::getDbo();
@@ -85,12 +72,6 @@ class H5PEditorJoomlaAjax implements \H5PEditorAjaxInterface
     return $db->loadObjectList();
   }
 
-  /**
-   * Gets recently used libraries for the current author
-   *
-   * @return array machine names. The first element in the array is the
-   * most recently used.
-   */
   public function getAuthorsRecentlyUsedLibraries()
   {
     $db = Factory::getDbo();
@@ -114,27 +95,11 @@ class H5PEditorJoomlaAjax implements \H5PEditorAjaxInterface
     return $recently_used;
   }
 
-  /**
-   * Checks if the provided token is valid for this endpoint
-   *
-   * @param string $token
-   *
-   * @return bool True if successful validation
-   */
   public function validateEditorToken($token)
   {
-
     return \H5PCore::validToken('h5p_editor_ajax', $token);
-    //return true; //wp_verify_nonce($token, 'h5p_editor_ajax');
   }
 
-  /**
-   * Get translations for a language for a list of libraries
-   *
-   * @param array $libraries An array of libraries, in the form "<machineName> <majorVersion>.<minorVersion>
-   * @param string $language_code
-   * @return array
-   */
   public function getTranslations($libraries, $language_code)
   {
     global $wpdb;

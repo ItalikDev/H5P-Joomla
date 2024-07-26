@@ -2,11 +2,11 @@
 
 <extension version="3.1" type="plugin" method="upgrade" group="content">
 
-	<name>H5P Joomla plugin</name>
+	<name>H5P embed plugin</name>
 	<author>Vitalii Butsykin</author>
 	<authorEmail>v.butsykin@gmail.com</authorEmail>
 	<authorUrl>https://github.com/ItalikDev</authorUrl>
-	<creationDate>January 2015</creationDate>
+	<creationDate>July 2024</creationDate>
 	<license>GNU/GPL http://www.gnu.org/copyleft/gpl.html</license>
 	<version>1.0.0</version>
 	<description>Plugin for embed H5P contents to article Joomla</description>

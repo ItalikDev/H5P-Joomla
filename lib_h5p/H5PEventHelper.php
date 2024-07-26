@@ -15,15 +15,6 @@ class H5PEventHelper extends \H5PEventBase
 {
   private $user;
 
-  /**
-   * Adds event type, h5p library and timestamp to event before saving it.
-   *
-   * @param string $type
-   *  Name of event to log
-   * @param string $library
-   *  Name of H5P library affacted
-   */
-
   function __construct($type, $sub_type = NULL, $content_id = NULL, $content_title = NULL, $library_name = NULL, $library_version = NULL)
   {
 
@@ -33,9 +24,6 @@ class H5PEventHelper extends \H5PEventBase
     parent::__construct($type, $sub_type, $content_id, $content_title, $library_name, $library_version);
   }
 
-  /**
-   * Store the event.
-   */
   protected function save()
   {
     // Insert user into DB
@@ -75,9 +63,6 @@ class H5PEventHelper extends \H5PEventBase
     return $obj;
   }
 
-  /**
-   * Count number of events.
-   */
   protected function saveStats()
   {
 
