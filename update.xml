@@ -1,0 +1,20 @@
+<updates>
+	<update>
+		<name>H5P Package</name>
+		<description>H5P Content in Joomla</description>
+		<element>pkg_h5p</element>
+		<type>package</type>
+		<version>1.0.1</version>
+		<downloads>
+			<downloadurl type="full" format="zip">https://github.com/ItalikDev/H5P-Joomla/releases/download/1.0.1/H5PJoomla-1.0.1.zip</downloadurl>
+		</downloads>
+		<tags>
+			<tag>stable</tag>
+		</tags>
+		<sha256>957415a199a331412f3d51a8d53711c096dbbfa100746109123220622b86bce3</sha256>
+		<maintainer>ItalikDev</maintainer>
+		<maintainerurl>https://github.com/ItalikDev</maintainerurl>
+		<targetplatform name="joomla" version="(5\.[01]|4\.[01234]|3\.10)\."/>
+    <php_minimum>7.4</php_minimum>
+</update>
+</updates>
