@@ -40,6 +40,7 @@
 	<media folder="media" destination="com_h5p">
 		<folder>css</folder>
 		<folder>js</folder>
+		<folder>h5p</folder>
 		<filename>index.html</filename>
 	</media>
 
