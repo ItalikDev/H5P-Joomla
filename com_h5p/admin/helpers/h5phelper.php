@@ -7,8 +7,6 @@
  * @license    GNU General Public License ver. 2 or later
  */
 
-defined('_JEXEC') or die;
-
 namespace VB\Component\H5P\Administrator\Helper;
 
 defined('_JEXEC') or die;
