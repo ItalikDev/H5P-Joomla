@@ -11,6 +11,8 @@ defined('_JEXEC') or die;
 
 namespace VB\Component\H5P\Administrator\Helper;
 
+defined('_JEXEC') or die;
+
 require_once JPATH_LIBRARIES . '/h5p/h5p-php-library/h5p.classes.php';
 require_once JPATH_LIBRARIES . '/h5p/h5p-php-library/h5p-development.class.php';
 require_once JPATH_LIBRARIES . '/h5p/h5p-php-library/h5p-event-base.class.php';
