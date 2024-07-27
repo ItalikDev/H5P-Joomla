@@ -7,6 +7,8 @@
  * @license    GNU General Public License ver. 2 or later
  */
 
+defined('_JEXEC') or die;
+
 namespace VB\Component\H5P\Administrator\Helper;
 
 require_once JPATH_LIBRARIES . '/h5p/h5p-php-library/h5p.classes.php';

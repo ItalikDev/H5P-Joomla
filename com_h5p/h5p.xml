@@ -29,7 +29,7 @@
 		</schemas>
 	</update>
 
-	<namespace path="src/">VB\Component\H5P</namespace>
+	<namespace path="src">VB\Component\H5P</namespace>
 	
     <files folder="site">
         <filename>index.html</filename>

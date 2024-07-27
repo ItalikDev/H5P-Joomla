@@ -12,6 +12,6 @@
 	<description>Plugin mods for H5P Joomla</description>
 	<files>
 		<filename plugin="mods">mods.php</filename>
-		<filename plugin="mods">styles/general.css</filename>
+		<filename>styles/general.css</filename>
 	</files>
 </extension>

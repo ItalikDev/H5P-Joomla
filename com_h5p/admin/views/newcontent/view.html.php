@@ -41,12 +41,6 @@ class H5pViewNewcontent extends \Joomla\CMS\MVC\View\HtmlView
 	private $insertButton = FALSE;
 	public $library, $parameters, $contentExists, $examplesHint;
 
-	/**
-	 * Отображение основного вида "Hello World" 
-	 *
-	 * @param   string  $tpl  Имя файла шаблона для анализа; автоматический поиск путей к шаблону.
-	 * @return  void
-	 */
 	function display($tpl = null)
 	{
 		$task = filter_input(INPUT_GET, 'task', FILTER_SANITIZE_STRING);

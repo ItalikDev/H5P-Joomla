@@ -8,6 +8,7 @@
  */
 
 //namespace VB\Component\H5P;
+defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
 
