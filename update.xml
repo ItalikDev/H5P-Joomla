@@ -4,11 +4,11 @@
 		<description>H5P Content in Joomla</description>
 		<element>pkg_h5p</element>
 		<type>package</type>
-		<version>1.0.1</version>
+		<version>1.0.2</version>
 		<downloads>
-			<downloadurl type="full" format="zip">https://github.com/ItalikDev/H5P-Joomla/releases/download/1.0.1/H5PJoomla-1.0.1.zip</downloadurl>
+			<downloadurl type="full" format="zip">https://github.com/ItalikDev/H5P-Joomla/releases/download/1.0.2/pkg_h5p_1.0.2.zip</downloadurl>
 		</downloads>
-		<sha256>a686c25f7a614b25c2c38ea7b1ade5081cd6ef4958afd7566ec7ff273b4299ec</sha256>
+		<sha256>68f042078af3eeec268cccaf2ed14755f742b59f93838c97ba92e479c5d254a6</sha256>
 		<maintainer>ItalikDev</maintainer>
 		<maintainerurl>https://github.com/ItalikDev</maintainerurl>
 		<targetplatform name="joomla" version="(5\.[01]|4\.[01234]|3\.10)\."/>
