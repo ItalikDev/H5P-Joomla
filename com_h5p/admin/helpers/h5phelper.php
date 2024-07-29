@@ -43,7 +43,7 @@ PluginHelper::importPlugin('h5p');
 class H5PJoomlaHelper
 {
 
-    const VERSION = '1.0.0';
+    const VERSION = '1.0.2';
     protected static $instance = null;
     protected static $interface;
     protected static $core;
@@ -164,7 +164,7 @@ class H5PJoomlaHelper
     public function get_core_settings()
     {
         $appName = Factory::getApplication()->getName();
-        $current_user = Factory::getUser(); //Factory::getApplication()->getIdentity();
+        $current_user = Factory::getApplication()->getIdentity();
         $core = self::get_h5p_instance('core');
         $h5p = self::get_h5p_instance('interface');
         $settings = array(
@@ -446,7 +446,7 @@ class H5PJoomlaHelper
         );
 
         // Get preloaded user data for the current user
-        $current_user = Factory::getUser();
+        $current_user = Factory::getApplication()->getIdentity();
         if (self::getSetting('h5p_save_content_state', false) && $current_user->id) {
             $db->setQuery(sprintf(
                 "SELECT hcud.sub_content_id,
@@ -491,7 +491,7 @@ class H5PJoomlaHelper
 
     public static function current_user_can($access)
     {
-        $current_user = Factory::getUser(); //Factory::getApplication()->getIdentity();
+        $current_user = Factory::getApplication()->getIdentity();
         if('h5p' . $access == 'h5p.disable_h5p_security' && $current_user->authorise('core.admin')){
             return true;
         }
@@ -508,7 +508,7 @@ class H5PJoomlaHelper
             return true;
         }
         $author_id = (int) (is_array($content) ? $content['user_id'] : $content->user_id);
-        return Factory::getUser()->id == $author_id;
+        return Factory::getApplication()->getIdentity()->id == $author_id;
     }
 
     public static function current_user_can_view_content_results($content)
@@ -534,7 +534,7 @@ class H5PJoomlaHelper
 
         // Does content belong to current user?
         $author_id = (int) (is_array($content) ? $content['user_id'] : $content->user_id);
-        return Factory::getUser()->id == $author_id;
+        return Factory::getApplication()->getIdentity()->id == $author_id;
     }
 
     public function print_data_view_settings($name, $source, $headers, $filters, $empty, $order)
@@ -569,7 +569,7 @@ class H5PJoomlaHelper
         0;
 
         // Add user object to H5PIntegration
-        $user = Factory::getUser();
+        $user = Factory::getApplication()->getIdentity();
         if ($user->id !== 0) {
             $user = array(
                 'user' => array(
@@ -907,7 +907,7 @@ class H5PJoomlaHelper
             exit;
         }
 
-        $user_id = Factory::getUser()->id;
+        $user_id = Factory::getApplication()->getIdentity()->id;
         $db = Factory::getDbo();
         $db->setQuery(sprintf(
             "SELECT id
@@ -972,7 +972,7 @@ class H5PJoomlaHelper
 		$content_id = filter_input(INPUT_GET, 'content_id');
 		$data_id = filter_input(INPUT_GET, 'data_type');
 		$sub_content_id = filter_input(INPUT_GET, 'sub_content_id');
-		$current_user = Factory::getUser();
+		$current_user = Factory::getApplication()->getIdentity();
 
 		$plugin = self::get_instance();
 		

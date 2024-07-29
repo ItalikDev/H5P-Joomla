@@ -8,9 +8,9 @@
     <authorUrl>https://github.com/ItalikDev</authorUrl>
     <copyright>Vitalii Butsykin</copyright>
     <license>GPL v3</license>
-    <version>1.0.0</version>
+    <version>1.0.2</version>
     <description>
-        H5P for Joomla!!!
+        H5P Content for Joomla.
     </description>
 	
 	<install> 
@@ -29,8 +29,6 @@
 		</schemas>
 	</update>
 
-	<namespace path="src">VB\Component\H5P</namespace>
-	
     <files folder="site">
         <filename>index.html</filename>
         <filename>h5p.php</filename>

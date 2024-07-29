@@ -676,7 +676,7 @@ class H5PFrameworkHelper implements \H5PFrameworkInterface
 		if (!isset($content['id'])) {
 			// Insert new content
 			$db_object->created_at = $data['updated_at'];
-			$db_object->user_id = Factory::getUser()->id;
+			$db_object->user_id = Factory::getApplication()->getIdentity()->id;
 
 			$res = $db->insertObject('#__h5p_contents', $db_object, 'id');
 			$content['id'] = $db->insertid(); //$db_object->id;
@@ -1074,7 +1074,7 @@ class H5PFrameworkHelper implements \H5PFrameworkInterface
 			return TRUE;
 		}
 
-		$user_id = Factory::getUser() != null ? Factory::getUser()->id : 0;
+		$user_id = Factory::getApplication()->getIdentity() != null ? Factory::getApplication()->getIdentity()->id : 0;
 		return $user_id == $contentUserId;
 	}
 

@@ -288,7 +288,7 @@ class H5pViewContents extends \Joomla\CMS\MVC\View\HtmlView
 
         // Limit query to content types that user is allowed to view
         if ($plugin->current_user_can('view_others_h5p_contents') == false) {
-            array_push($conditions, array('user_id', Factory::getUser()->id, '='));
+            array_push($conditions, array('user_id', Factory::getApplication()->getIdentity()->id, '='));
         }
 
         if ($facets !== null) {
@@ -401,7 +401,7 @@ class H5pViewContents extends \Joomla\CMS\MVC\View\HtmlView
     private function format_time($timestamp)
     {
         // Get timezone offset
-        $timezone = Factory::getUser()->getTimezone();
+        $timezone = Factory::getApplication()->getIdentity()->getTimezone();
 
         // Format time
         $timed = (new Date($timestamp))->setTimezone($timezone);

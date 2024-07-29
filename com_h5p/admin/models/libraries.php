@@ -25,7 +25,7 @@ class H5pModelLibraries extends \Joomla\CMS\MVC\Model\ListModel {
      */
 	public function getItem($pk= null): object {
         $item = new \stdClass();
-        $item->message = Text::_('COM_HELLOWORLD_MSG_GREETING');
+        $item->message = Text::_('Model libraries');
         return $item;
     }
 	

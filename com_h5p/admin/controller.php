@@ -67,8 +67,8 @@ class H5pController extends \Joomla\CMS\MVC\Controller\BaseController
     }
 
     public function h5p_my_results()
-    { //ajax_my_results()
-        $user = Factory::getUser();
+    { 
+        $user = Factory::getApplication()->getIdentity();
         $plugin = H5PJoomlaHelper::get_instance();
         $plugin->print_results(null, $user->id);
     }

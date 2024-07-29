@@ -9,6 +9,7 @@
 
 defined('_JEXEC') or die;
 use Joomla\CMS\Language\Text;
+
 class H5pHelper extends JHelperContent
 {
     public static function addSubmenu($vName)

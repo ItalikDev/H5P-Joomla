@@ -6,9 +6,9 @@
  * @copyright  2022 Vitalii Butsykin
  * @license    GNU General Public License ver. 2 or later
  */
-defined('_JEXEC') or die;
-
 namespace VB\Component\H5P\Administrator\Helper;
+
+defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
 
@@ -20,7 +20,7 @@ class H5PEventHelper extends \H5PEventBase
   {
 
     // Track the user who initiated the event as well
-    $current_user = Factory::getUser(); //Factory::getApplication()->getIdentity();
+    $current_user = Factory::getApplication()->getIdentity();
     $this->user = $current_user != null ? $current_user->id : 0;
     parent::__construct($type, $sub_type, $content_id, $content_title, $library_name, $library_version);
   }

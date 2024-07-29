@@ -6,9 +6,9 @@
  * @copyright  2022 Vitalii Butsykin
  * @license    GNU General Public License ver. 2 or later
  */
-defined('_JEXEC') or die;
-
 namespace VB\Component\H5P;
+
+defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
 
@@ -84,7 +84,7 @@ class H5PEditorJoomlaAjax implements \H5PEditorAjaxInterface
         WHERE type='content' AND sub_type = 'create' AND user_id = %d
      GROUP BY library_name
      ORDER BY max_created_at DESC",
-      Factory::getUser()->id
+      Factory::getApplication()->getIdentity()->id
     ));
 
     $result = $db->loadObjectList();

@@ -402,7 +402,7 @@ class H5pViewLibraries extends \Joomla\CMS\MVC\View\HtmlView
 				'error' => Text::_('COM_H5P_LIBRARIES_LI_ERROR'),
 				'errorData' => Text::_('COM_H5P_LIBRARIES_LI_ERRORDATA'),
 				'errorContent' => Text::_('COM_H5P_LIBRARIES_LI_ERRORCONTENT'),
-				'errorScript' => Text::_('COM_H5P_LIBRARIES_LI_ERRORSCRIPTCould not load upgrades script for %lib.'),
+				'errorScript' => Text::_('COM_H5P_LIBRARIES_LI_ERRORSCRIPT'),
 				'errorParamsBroken' => Text::_('COM_H5P_LIBRARIES_LI_ERRORPARAMSBROKEN'),
 				'errorLibrary' => Text::_('COM_H5P_LIBRARIES_LI_ERRORLIBRARY'),
 				'errorTooHighVersion' => Text::_('COM_H5P_LIBRARIES_LI_ERRORTOOHIGHVERSION'),
