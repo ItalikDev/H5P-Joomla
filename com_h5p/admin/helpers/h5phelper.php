@@ -951,15 +951,15 @@ class H5PJoomlaHelper
 			  JOIN #__h5p_libraries l ON l.id = c.library_id
 			 WHERE c.id = %d
 			", $content_id));
-        $content = $db->loadObjectList($content_id);
+        $content = $db->loadObjectList();
         // Log view
         new H5PEventHelper(
             'results',
             'set',
             $content_id,
-            $content->title,
-            $content->name,
-            $content->major_version . '.' . $content->minor_version
+            $content[0]->title,
+            $content[0]->name,
+            $content[0]->major_version . '.' . $content[0]->minor_version
         );
 
         // Success
