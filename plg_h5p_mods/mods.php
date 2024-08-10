@@ -24,16 +24,13 @@ class plgH5pMods extends JPlugin {
 	public function onh5p_alter_library_styles (&$styles, $libraries, $embed_type) {
 		$plugin = H5PJoomlaHelper::get_instance();
 		$styles[] = (object) array(
-			/*
-			 * Path can be relative to wp-content/uploads/h5p or absolute or set using
-			 * WordPress functions
-			 */
+
 			'path' => URI::root().'plugins/h5p/mods/styles/general.css',
-			'version' => $plugin->VERSION
+			'version' => H5PJoomlaHelper::VERSION
 		  );
 		$styles[] = (object) array(
 			'path' => 'https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap',
-			'version' => $plugin->VERSION
+			'version' => H5PJoomlaHelper::VERSION
 		  );
 
 	}
