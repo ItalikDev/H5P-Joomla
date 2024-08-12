@@ -8,7 +8,7 @@
     <authorUrl>https://github.com/ItalikDev</authorUrl>
     <copyright>Vitalii Butsykin</copyright>
     <libraryname>h5p</libraryname>	
-    <version>1.26</version>	
+    <version>1.26.1</version>	
     <license>GNU/GPLv3 or later</license>	
     <description>H5P Framework.</description>	
     <files>	

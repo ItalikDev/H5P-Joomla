@@ -101,7 +101,8 @@ CREATE TABLE `#__h5p_libraries` (
   `tutorial_url` varchar(1023) COLLATE utf8mb4_unicode_ci NOT NULL,
   `has_icon` int(10) UNSIGNED NOT NULL DEFAULT 0,
   `metadata_settings` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `add_to` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `add_to` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `patch_version_in_folder_name` tinyint(3) UNSIGNED NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 DROP TABLE IF EXISTS `#__h5p_libraries_cachedassets`;

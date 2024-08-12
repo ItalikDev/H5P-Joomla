@@ -1,0 +1,1 @@
+ALTER TABLE `#__h5p_libraries` ADD `patch_version_in_folder_name` TINYINT(3) UNSIGNED NOT NULL DEFAULT '0' AFTER `add_to`;

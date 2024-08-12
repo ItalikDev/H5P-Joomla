@@ -44,7 +44,8 @@ class H5PEditorJoomlaAjax implements \H5PEditorAjaxInterface
                 hl4.minor_version,
                 hl4.patch_version,
                 hl4.restricted,
-                hl4.has_icon
+                hl4.has_icon,
+                hl4.patch_version_in_folder_name
            FROM ({$minor_versions_sql}) hl3
            JOIN #__h5p_libraries hl4
              ON hl3.name = hl4.name

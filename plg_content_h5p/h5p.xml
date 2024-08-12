@@ -9,7 +9,7 @@
 	<copyright>Vitalii Butsykin</copyright>
 	<creationDate>July 2024</creationDate>
 	<license>GNU/GPL http://www.gnu.org/copyleft/gpl.html</license>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<description>Plugin for embed H5P contents to article Joomla</description>
 	<files>
 		<filename plugin="h5p">h5p.php</filename>

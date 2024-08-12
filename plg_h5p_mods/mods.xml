@@ -9,7 +9,7 @@
 	<authorUrl>https://github.com/ItalikDev</authorUrl>
 	<creationDate>November 2022</creationDate>
 	<license>GNU/GPL http://www.gnu.org/copyleft/gpl.html</license>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<description>Plugin mods for H5P Joomla</description>
 	<files>
 		<filename plugin="mods">mods.php</filename>

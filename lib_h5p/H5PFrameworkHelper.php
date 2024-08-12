@@ -204,6 +204,7 @@ class H5PFrameworkHelper implements \H5PFrameworkInterface
 		$db_object->has_icon = $libraryData['hasIcon'] ? 1 : 0;
 		$db_object->metadata_settings = $libraryData['metadataSettings'];
 		$db_object->add_to = isset($libraryData['addTo']) ? json_encode($libraryData['addTo']) : NULL;
+		$db_object->patch_version_in_folder_name = 0;
 
 		$db = Factory::getDbo();
 		if ($new) {
@@ -358,7 +359,8 @@ class H5PFrameworkHelper implements \H5PFrameworkInterface
 			'fullscreen',
 			'runnable',
 			'semantics',
-			'has_icon as hasIcon'
+			'has_icon as hasIcon',
+			'patch_version_in_folder_name'
 		))
 			->from('#__h5p_libraries')
 			->where(array(
@@ -583,7 +585,8 @@ class H5PFrameworkHelper implements \H5PFrameworkInterface
 			"SELECT l1.id as libraryId, l1.name as machineName,
               l1.major_version as majorVersion, l1.minor_version as minorVersion,
               l1.patch_version as patchVersion, l1.add_to as addTo,
-              l1.preloaded_js as preloadedJs, l1.preloaded_css as preloadedCss
+              l1.preloaded_js as preloadedJs, l1.preloaded_css as preloadedCss,
+			  l1.patch_version_in_folder_name
         	FROM #__h5p_libraries AS l1
         	LEFT JOIN #__h5p_libraries AS l2
           	ON l1.name = l2.name AND
@@ -906,6 +909,7 @@ class H5PFrameworkHelper implements \H5PFrameworkInterface
 				  , hl.patch_version AS patchVersion
 				  , hl.preloaded_css AS preloadedCss
 				  , hl.preloaded_js AS preloadedJs
+				  , hl.patch_version_in_folder_name
 				  , hcl.drop_css AS dropCss
 				  , hcl.dependency_type AS dependencyType
 			FROM #__h5p_contents_libraries hcl

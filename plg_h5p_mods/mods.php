@@ -22,7 +22,7 @@ class plgH5pMods extends JPlugin {
 	}
 
 	public function onh5p_alter_library_styles (&$styles, $libraries, $embed_type) {
-		$plugin = H5PJoomlaHelper::get_instance();
+		//$plugin = H5PJoomlaHelper::get_instance();
 		$styles[] = (object) array(
 
 			'path' => URI::root().'plugins/h5p/mods/styles/general.css',
