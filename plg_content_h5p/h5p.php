@@ -66,7 +66,8 @@ class plgContenth5p extends JPlugin
 				$html .= $h5p_plugin->shortcode($id[0][1]) . '
 			';
 				if ($input->getMethod() == "POST") {
-					$html .= "{emailcloak=off}" . $h5p_plugin->print_settings($h5p_plugin->get_settings(), 'H5PIntegration', 1);
+					$set = $h5p_plugin->get_settings();
+					$html .= "{emailcloak=off}" . $h5p_plugin->print_settings( $set, 'H5PIntegration', 1 );
 				} else {
 					$h5p_plugin->add_settings();
 				}
