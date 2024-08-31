@@ -204,7 +204,7 @@ class H5PFrameworkHelper implements \H5PFrameworkInterface
 		$db_object->has_icon = $libraryData['hasIcon'] ? 1 : 0;
 		$db_object->metadata_settings = $libraryData['metadataSettings'];
 		$db_object->add_to = isset($libraryData['addTo']) ? json_encode($libraryData['addTo']) : NULL;
-		$db_object->patch_version_in_folder_name = 0;
+		$db_object->patch_version_in_folder_name = 1;
 
 		$db = Factory::getDbo();
 		if ($new) {

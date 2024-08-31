@@ -25,12 +25,12 @@ class plgH5pMods extends JPlugin {
 		//$plugin = H5PJoomlaHelper::get_instance();
 		$styles[] = (object) array(
 
-			'path' => URI::root().'plugins/h5p/mods/styles/general.css',
-			'version' => H5PJoomlaHelper::VERSION
+			'path' => URI::root().'plugins/h5p/mods/styles/general.css'//,
+			//'version' => H5PJoomlaHelper::VERSION
 		  );
 		$styles[] = (object) array(
-			'path' => 'https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap',
-			'version' => H5PJoomlaHelper::VERSION
+			'path' => 'https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap'//,
+			//'version' => H5PJoomlaHelper::VERSION
 		  );
 
 	}
