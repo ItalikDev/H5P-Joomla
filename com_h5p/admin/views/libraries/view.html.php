@@ -597,7 +597,10 @@ class H5pViewLibraries extends \Joomla\CMS\MVC\View\HtmlView
 		if (isset($dev_lib)) {
 			$upgrades_script_path = $upgrades_script_url = $dev_lib['path'] . '/upgrades.js';
 		} else {
-			$suffix = '/libraries/' . $library->name . '-' . $library->version->major . '.' . $library->version->minor . '/upgrades.js';
+
+			$library_folder = \H5PCore::libraryToFolderName( $core->loadLibrary($library->name, $library->version->major, $library->version->minor));
+			$suffix = "/libraries/{$library_folder}/upgrades.js";
+			//$suffix = '/libraries/' . $library->name . '-' . $library->version->major . '.' . $library->version->minor . '/upgrades.js';
 			$upgrades_script_path = $plugin->get_h5p_path() . $suffix;
 			$upgrades_script_url = $plugin->get_h5p_url() . $suffix;
 		}
